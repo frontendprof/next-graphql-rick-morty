@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import {useState} from "react"
 import {
   ApolloClient,
@@ -19,12 +18,13 @@ import {
   useToast
 } from "@chakra-ui/react"
 import styles from '../styles/Home.module.css'
+import Characters from '../components/Characters';
 
 export default function Home(results) {
   const initState=results;
   const [chars,setChars]=useState(initState.characters)
 
-  console.log(initState)
+
 
   return (
     <Flex direction="column" align="center" justify="center">
@@ -39,6 +39,8 @@ export default function Home(results) {
         <Heading as="h1" size="2xl" mb={8}>
           Rick and Morty
         </Heading>
+
+        <Characters characters={chars} />
       </Box>
 
       
